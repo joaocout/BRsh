@@ -4,15 +4,23 @@
 #include <vector>
 #include <map>
 #include <queue>
+#include <stack>
 
 #include <unistd.h>
 #include <sys/wait.h>
 #include <string.h>
 #include <fcntl.h>
+#include <stdlib.h>
 
 using namespace std;
 
 map<string, string> ALIASES;
+
+map<int, int> JOBS;
+
+queue<string> HISTORY;
+
+int JOBS_COUNT;
 
 // divide a string str, de acordo com o delimitador d, retorna um vector de strings
 vector<string> split(string str, string d = "")
@@ -80,14 +88,31 @@ void ver()
 }
 
 // implementa o comando "historico"
-void historico(int n)
+void historico(int n = 7)
 {
+    int count = n;
+    queue<string> tmp_q = HISTORY;
+    stack<string> tmp_s;
+
+    // invertendo a queue usando um stack
+    while (!tmp_q.empty())
+    {
+        tmp_s.push(tmp_q.front());
+        tmp_q.pop();
+    }
+
+    while (!tmp_s.empty() && count)
+    {
+        count--;
+        cout << tmp_s.top() << endl;
+        tmp_s.pop();
+    }
 }
 
 // executa comandos, com ou sem pipes
-void execute_pipes(string command)
+void execute_pipes(string line)
 {
-    vector<string> parts = split(command, "|");
+    vector<string> parts = split(line, "|");
 
     vector<int> pids(parts.size());
 
@@ -96,6 +121,7 @@ void execute_pipes(string command)
     // write = fd[1]
 
     bool should_pipe = parts.size() > 1;
+    bool bg = false;
 
     // inicializando os pipes
     for (unsigned int i = 0; i < parts.size() - 1; i++)
@@ -134,10 +160,16 @@ void execute_pipes(string command)
 
         // processando a string do comando atual
         vector<string> arr = split(command);
-        const char *command_argv[arr.size() + 1];
-        for (unsigned int j = 0; j < arr.size(); j++)
-            command_argv[j] = arr[j].c_str();
-        command_argv[arr.size()] = NULL;
+
+        // checando se deve ser executado em bg
+        if (*(arr[arr.size() - 1].end() - 1) == '&')
+        {
+            bg = true;
+            if (arr[arr.size() - 1] == "&")
+                arr.erase(arr.end() - 1);
+            else
+                arr[arr.size() - 1].erase(arr[arr.size() - 1].end() - 1);
+        }
 
         if (arr[0] == "cd")
         {
@@ -153,14 +185,33 @@ void execute_pipes(string command)
 
         if (arr[0] == "historico")
         {
-            historico(0);
+            historico(3);
+            continue;
+        }
+
+        if (arr[0] == "check")
+        {
+            for (auto it = JOBS.begin(); it != JOBS.end();)
+            {
+                cout << "entrou" << endl;
+                int status;
+                int ret = waitpid(it->first, &status, WNOHANG);
+                if (WIFEXITED(status))
+                {
+                    cout << "Processo em background [" << JOBS[ret] << "]"
+                         << " [executado]" << endl;
+                    it = JOBS.erase(it);
+                }
+                else
+                    it++;
+            }
             continue;
         }
 
         int pid = fork();
-        pids.push_back(pid);
-
-        if (pid == 0)
+        if (pid > 0)
+            pids[i] = pid;
+        else if (pid == 0)
         {
             // foi passado um arquivo para output
             if (out_file.size())
@@ -209,8 +260,18 @@ void execute_pipes(string command)
 
                 close_all_pipes(fd, parts.size() - 1);
             }
+
+            // processando vector para poder ser passado ao exec
+            const char *command_argv[arr.size() + 1];
+            for (unsigned int j = 0; j < arr.size(); j++)
+                command_argv[j] = arr[j].c_str();
+            command_argv[arr.size()] = NULL;
+
             if (execvp(command_argv[0], (char *const *)command_argv) == -1)
+            {
                 cout << "Erro - Comando não encontrado - " << command_argv[0] << endl;
+                exit(1);
+            }
         }
 
         used_pipe = i;
@@ -220,7 +281,19 @@ void execute_pipes(string command)
         close_all_pipes(fd, parts.size() - 1);
 
     for (int pid : pids)
-        waitpid(pid, NULL, 0);
+    {
+        // se nao for necessario background, ou se for, mas nao for a ultima parte do pipe
+        if (!bg)
+        {
+            waitpid(pid, NULL, 0);
+        }
+        else
+        {
+            JOBS[pid] = JOBS_COUNT;
+            cout << "Processo em background [" << JOBS[pid] << "]" << endl;
+            waitpid(-1, NULL, WNOHANG);
+        }
+    }
 }
 
 int main()
@@ -231,7 +304,13 @@ int main()
 
     while (!(command == "sair"))
     {
-        execute_pipes(command);
+        if (split(command).size())
+        {
+            if (HISTORY.size() == 7)
+                HISTORY.pop();
+            HISTORY.push(command);
+            execute_pipes(command);
+        }
         print_prompt();
         getline(cin, command);
     }
