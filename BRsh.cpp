@@ -148,10 +148,6 @@ void execute_pipes(string line)
         string out_file = "";
         bool should_append = false;
 
-        // removendo whitespace à direita
-        if (command.size())
-            command.erase(command.find_last_not_of(" \t") + 1);
-
         // se o ultimo char for um &
         // assumimos que não haverao espacos em branco à direita
         if (command[command.size() - 1] == '&')
@@ -185,8 +181,6 @@ void execute_pipes(string line)
         // processando a string do comando atual
         vector<string> arr = split(command);
 
-        // checando se deve ser executado em bg
-
         if (arr[0] == "cd" || arr[0] == "muda")
         {
             if (arr.size() >= 2)
@@ -204,12 +198,6 @@ void execute_pipes(string line)
         {
             historico();
             return;
-        }
-
-        if (arr[0] == "check")
-        {
-            check_bg();
-            continue;
         }
 
         int pid = fork();
@@ -301,16 +289,16 @@ void execute_pipes(string line)
     for (unsigned int i = 0; i < pids.size(); i++)
     {
         // se nao for necessario background, ou se for, mas nao for a ultima parte do pipe
-        if (!bg || i != pids.size() - 1)
-        {
-            waitpid(pids[i], NULL, 0);
-        }
-        else
+        if (bg && i == pids.size() - 1)
         {
             JOBS[pids[i]] = JOBS_COUNT;
             cout << "Processo em background [" << JOBS[pids[i]] << "]" << endl;
             waitpid(-1, NULL, WNOHANG);
             JOBS_COUNT++;
+        }
+        else
+        {
+            waitpid(pids[i], NULL, 0);
         }
     }
 }
@@ -394,8 +382,6 @@ int main(int argc, char *argv[])
     }
     else
     {
-        cout << "\n\nrodando\n"
-             << endl;
         for (string line : file_lines)
         {
             if (line.size() && split(line).size())
