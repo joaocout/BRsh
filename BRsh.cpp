@@ -1,3 +1,5 @@
+// joao pedro assuncao coutinho - 180019813
+
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -98,6 +100,27 @@ void historico()
     }
 }
 
+// verifica se existem processos em background
+void check_bg()
+{
+    for (auto it = JOBS.begin(); it != JOBS.end();)
+    {
+        int status;
+        int ret = waitpid(it->first, &status, WNOHANG);
+        if (ret == 0 || ret == -1)
+        {
+            it++;
+            return;
+        }
+        else if (WIFEXITED(status))
+        {
+            cout << "Processo em background [" << JOBS[ret] << "]"
+                 << " [executado]" << endl;
+            it = JOBS.erase(it);
+        }
+    }
+}
+
 // executa comandos, com ou sem pipes
 void execute_pipes(string line)
 {
@@ -125,6 +148,18 @@ void execute_pipes(string line)
         string out_file = "";
         bool should_append = false;
 
+        // removendo whitespace à direita
+        if (command.size())
+            command.erase(command.find_last_not_of(" \t") + 1);
+
+        // se o ultimo char for um &
+        // assumimos que não haverao espacos em branco à direita
+        if (command[command.size() - 1] == '&')
+        {
+            bg = true;
+            command.erase(command.end() - 1);
+        }
+
         // processando as strings >> > <
         vector<string> temp;
         if (contains(command, ">>"))
@@ -151,14 +186,6 @@ void execute_pipes(string line)
         vector<string> arr = split(command);
 
         // checando se deve ser executado em bg
-        if (*(arr[arr.size() - 1].end() - 1) == '&')
-        {
-            bg = true;
-            if (arr[arr.size() - 1] == "&")
-                arr.erase(arr.end() - 1);
-            else
-                arr[arr.size() - 1].erase(arr[arr.size() - 1].end() - 1);
-        }
 
         if (arr[0] == "cd" || arr[0] == "muda")
         {
@@ -181,22 +208,7 @@ void execute_pipes(string line)
 
         if (arr[0] == "check")
         {
-            for (auto it = JOBS.begin(); it != JOBS.end();)
-            {
-                int status;
-                int ret = waitpid(it->first, &status, WNOHANG);
-                if (ret == 0 || ret == -1)
-                {
-                    it++;
-                    return;
-                }
-                else if (WIFEXITED(status))
-                {
-                    cout << "Processo em background [" << JOBS[ret] << "]"
-                         << " [executado]" << endl;
-                    it = JOBS.erase(it);
-                }
-            }
+            check_bg();
             continue;
         }
 
@@ -286,18 +298,19 @@ void execute_pipes(string line)
     if (should_pipe)
         close_all_pipes(fd, parts.size() - 1);
 
-    for (int pid : pids)
+    for (unsigned int i = 0; i < pids.size(); i++)
     {
         // se nao for necessario background, ou se for, mas nao for a ultima parte do pipe
-        if (!bg)
+        if (!bg || i != pids.size() - 1)
         {
-            waitpid(pid, NULL, 0);
+            waitpid(pids[i], NULL, 0);
         }
         else
         {
-            JOBS[pid] = JOBS_COUNT;
-            cout << "Processo em background [" << JOBS[pid] << "]" << endl;
+            JOBS[pids[i]] = JOBS_COUNT;
+            cout << "Processo em background [" << JOBS[pids[i]] << "]" << endl;
             waitpid(-1, NULL, WNOHANG);
+            JOBS_COUNT++;
         }
     }
 }
@@ -372,6 +385,7 @@ int main(int argc, char *argv[])
                 if (HISTORY.size() == 7)
                     HISTORY.pop();
                 HISTORY.push(command);
+                check_bg();
                 execute_pipes(command);
             }
             print_prompt();
@@ -389,6 +403,7 @@ int main(int argc, char *argv[])
                 if (HISTORY.size() == 7)
                     HISTORY.pop();
                 HISTORY.push(line);
+                check_bg();
                 execute_pipes(line);
             }
         }
