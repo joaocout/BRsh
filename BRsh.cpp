@@ -75,13 +75,12 @@ void cd(string path)
 // implementa o comando "ver"
 void ver()
 {
-    cout << "BRsh 0.1.0 - Atualizado em: 07/08/2022 - Autor: João Coutinho" << endl;
+    cout << "BRsh 0.1.0 - Atualizado em: 08/08/2022 - Autor: João Coutinho" << endl;
 }
 
 // implementa o comando "historico"
-void historico(int n = 7)
+void historico()
 {
-    int count = n;
     queue<string> tmp_q = HISTORY;
     stack<string> tmp_s;
 
@@ -92,9 +91,8 @@ void historico(int n = 7)
         tmp_q.pop();
     }
 
-    while (!tmp_s.empty() && count)
+    while (!tmp_s.empty())
     {
-        count--;
         cout << tmp_s.top() << endl;
         tmp_s.pop();
     }
@@ -162,39 +160,42 @@ void execute_pipes(string line)
                 arr[arr.size() - 1].erase(arr[arr.size() - 1].end() - 1);
         }
 
-        if (arr[0] == "cd")
+        if (arr[0] == "cd" || arr[0] == "muda")
         {
-            cd(arr[1]);
-            continue;
+            if (arr.size() >= 2)
+                cd(arr[1]);
+            return;
         }
 
         if (arr[0] == "ver")
         {
             ver();
-            continue;
+            return;
         }
 
         if (arr[0] == "historico")
         {
-            historico(3);
-            continue;
+            historico();
+            return;
         }
 
         if (arr[0] == "check")
         {
             for (auto it = JOBS.begin(); it != JOBS.end();)
             {
-                cout << "entrou" << endl;
                 int status;
                 int ret = waitpid(it->first, &status, WNOHANG);
-                if (WIFEXITED(status))
+                if (ret == 0 || ret == -1)
+                {
+                    it++;
+                    return;
+                }
+                else if (WIFEXITED(status))
                 {
                     cout << "Processo em background [" << JOBS[ret] << "]"
                          << " [executado]" << endl;
                     it = JOBS.erase(it);
                 }
-                else
-                    it++;
             }
             continue;
         }
@@ -210,7 +211,10 @@ void execute_pipes(string line)
                 auto mode = should_append ? O_APPEND : O_TRUNC;
                 int fd_out = open(out_file.c_str(), O_WRONLY | mode | O_CREAT, 0777);
                 if (fd_out == -1)
+                {
                     cout << "Erro - Abrindo o arquivo - " << out_file << endl;
+                    exit(1);
+                }
                 else
                 {
                     dup2(fd_out, STDOUT_FILENO);
@@ -223,7 +227,10 @@ void execute_pipes(string line)
             {
                 int fd_in = open(in_file.c_str(), O_RDONLY, 0777);
                 if (fd_in == -1)
+                {
                     cout << "Erro - Abrindo o arquivo - " << in_file << endl;
+                    exit(1);
+                }
                 else
                 {
                     dup2(fd_in, STDIN_FILENO);
@@ -258,7 +265,9 @@ void execute_pipes(string line)
             {
                 // tratando aliases
                 if (ALIASES.count(arr[j]))
+                {
                     command_argv[j] = ALIASES[arr[j]].c_str();
+                }
                 else
                     command_argv[j] = arr[j].c_str();
             }
@@ -323,24 +332,66 @@ void print_prompt()
     cout << "BRsh-" << string(username) << "-" << string(curr_dir) << "->";
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    // lemos os aliases antes de tudo
     read_aliases();
-    string command = "";
-    print_prompt();
-    getline(cin, command);
 
-    while (!(command == "sair"))
+    // caso tenhamos que executar um arquivo
+    bool should_read_from_file = argc == 2;
+    vector<string> file_lines;
+
+    if (should_read_from_file)
     {
-        if (split(command).size())
+        string file_name = string(argv[1]);
+        ifstream file(file_name);
+        string line;
+
+        while (getline(file, line))
         {
-            if (HISTORY.size() == 7)
-                HISTORY.pop();
-            HISTORY.push(command);
-            execute_pipes(command);
+            // se a linha não for um comentário nem for vazia
+            if (line[0] != '#' && line.size())
+                file_lines.push_back(line);
         }
+
+        file.close();
+    }
+
+    // se um arquivo não foi recebido como argumento
+    if (!should_read_from_file)
+    {
+        string command = "";
         print_prompt();
         getline(cin, command);
+
+        while (!(command == "sair"))
+        {
+            // somente precisamos processar comandos que não sejam espaços em branco
+            if (split(command).size())
+            {
+                if (HISTORY.size() == 7)
+                    HISTORY.pop();
+                HISTORY.push(command);
+                execute_pipes(command);
+            }
+            print_prompt();
+            getline(cin, command);
+        }
+    }
+    else
+    {
+        cout << "\n\nrodando\n"
+             << endl;
+        for (string line : file_lines)
+        {
+            if (line.size() && split(line).size())
+            {
+                if (HISTORY.size() == 7)
+                    HISTORY.pop();
+                HISTORY.push(line);
+                execute_pipes(line);
+            }
+        }
     }
 
     return 0;

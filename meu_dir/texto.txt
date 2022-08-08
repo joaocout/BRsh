@@ -1,0 +1,327 @@
+F S UID          PID    PPID  C PRI  NI ADDR SZ WCHAN  STIME TTY          TIME CMD
+4 S root           1       0  0  80   0 - 43324 -      02:48 ?        00:00:01 /usr/lib/systemd/systemd rhgb --switched-root --system --deserialize 35
+1 S root           2       0  0  80   0 -     0 -      02:48 ?        00:00:00 [kthreadd]
+1 I root           3       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [rcu_gp]
+1 I root           4       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [rcu_par_gp]
+1 I root           5       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [netns]
+1 I root           7       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [kworker/0:0H-events_highpri]
+1 I root           9       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [kworker/0:1H-kblockd]
+1 I root          10       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [mm_percpu_wq]
+1 I root          12       2  0  80   0 -     0 -      02:48 ?        00:00:00 [rcu_tasks_kthread]
+1 I root          13       2  0  80   0 -     0 -      02:48 ?        00:00:00 [rcu_tasks_rude_kthread]
+1 I root          14       2  0  80   0 -     0 -      02:48 ?        00:00:00 [rcu_tasks_trace_kthread]
+1 S root          15       2  0  80   0 -     0 -      02:48 ?        00:00:00 [ksoftirqd/0]
+1 I root          16       2  0  80   0 -     0 -      02:48 ?        00:00:09 [rcu_preempt]
+1 S root          17       2  0 -40   - -     0 -      02:48 ?        00:00:00 [migration/0]
+1 S root          19       2  0  80   0 -     0 -      02:48 ?        00:00:00 [cpuhp/0]
+5 S root          20       2  0  80   0 -     0 -      02:48 ?        00:00:00 [cpuhp/1]
+1 S root          21       2  0 -40   - -     0 -      02:48 ?        00:00:00 [migration/1]
+1 S root          22       2  0  80   0 -     0 -      02:48 ?        00:00:00 [ksoftirqd/1]
+1 I root          24       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [kworker/1:0H-events_highpri]
+5 S root          25       2  0  80   0 -     0 -      02:48 ?        00:00:00 [cpuhp/2]
+1 S root          26       2  0 -40   - -     0 -      02:48 ?        00:00:00 [migration/2]
+1 S root          27       2  0  80   0 -     0 -      02:48 ?        00:00:00 [ksoftirqd/2]
+1 I root          29       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [kworker/2:0H-events_highpri]
+5 S root          30       2  0  80   0 -     0 -      02:48 ?        00:00:00 [cpuhp/3]
+1 S root          31       2  0 -40   - -     0 -      02:48 ?        00:00:00 [migration/3]
+1 S root          32       2  0  80   0 -     0 -      02:48 ?        00:00:00 [ksoftirqd/3]
+1 I root          34       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [kworker/3:0H-events_highpri]
+5 S root          35       2  0  80   0 -     0 -      02:48 ?        00:00:00 [cpuhp/4]
+1 S root          36       2  0 -40   - -     0 -      02:48 ?        00:00:00 [migration/4]
+1 S root          37       2  0  80   0 -     0 -      02:48 ?        00:00:00 [ksoftirqd/4]
+1 I root          39       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [kworker/4:0H-events_highpri]
+5 S root          40       2  0  80   0 -     0 -      02:48 ?        00:00:00 [cpuhp/5]
+1 S root          41       2  0 -40   - -     0 -      02:48 ?        00:00:00 [migration/5]
+1 S root          42       2  0  80   0 -     0 -      02:48 ?        00:00:00 [ksoftirqd/5]
+1 I root          44       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [kworker/5:0H-events_highpri]
+5 S root          45       2  0  80   0 -     0 -      02:48 ?        00:00:00 [kdevtmpfs]
+1 I root          46       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [inet_frag_wq]
+1 S root          47       2  0  80   0 -     0 -      02:48 ?        00:00:00 [kauditd]
+1 S root          51       2  0  80   0 -     0 -      02:48 ?        00:00:00 [oom_reaper]
+1 I root          52       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [writeback]
+1 S root          53       2  0  80   0 -     0 -      02:48 ?        00:00:00 [kcompactd0]
+1 S root          54       2  0  85   5 -     0 -      02:48 ?        00:00:00 [ksmd]
+1 S root          55       2  0  99  19 -     0 -      02:48 ?        00:00:00 [khugepaged]
+1 I root          56       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [cryptd]
+1 I root          57       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [kintegrityd]
+1 I root          58       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [kblockd]
+1 I root          59       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [blkcg_punt_bio]
+1 I root          60       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [tpm_dev_wq]
+1 I root          61       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [ata_sff]
+1 I root          62       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [md]
+1 I root          63       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [edac-poller]
+1 S root          64       2  0   9   - -     0 -      02:48 ?        00:00:00 [watchdogd]
+1 I root          65       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [kworker/1:1H-events_highpri]
+1 S root          66       2  0   9   - -     0 -      02:48 ?        00:00:00 [irq/26-AMD-Vi]
+1 S root          67       2  0  80   0 -     0 -      02:48 ?        00:00:00 [kswapd0]
+1 I root          76       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [kthrotld]
+1 S root          83       2  0   9   - -     0 -      02:48 ?        00:00:00 [irq/27-aerdrv]
+1 S root          84       2  0   9   - -     0 -      02:48 ?        00:00:00 [irq/28-aerdrv]
+1 S root          85       2  0   9   - -     0 -      02:48 ?        00:00:00 [irq/30-aerdrv]
+1 S root          86       2  0   9   - -     0 -      02:48 ?        00:00:00 [irq/31-aerdrv]
+1 I root          90       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [acpi_thermal_pm]
+1 S root          91       2  0  80   0 -     0 -      02:48 ?        00:00:00 [scsi_eh_0]
+1 I root          92       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [scsi_tmf_0]
+1 S root          93       2  0  80   0 -     0 -      02:48 ?        00:00:00 [scsi_eh_1]
+1 I root          94       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [scsi_tmf_1]
+1 I root          95       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [kworker/5:1H-events_highpri]
+1 I root          96       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [dm_bufio_cache]
+1 I root          97       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [mld]
+1 I root          98       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [ipv6_addrconf]
+1 I root         103       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [kstrp]
+1 I root         111       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [kworker/2:1H-events_highpri]
+1 I root         117       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [zswap-shrink]
+1 I root         269       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [kworker/4:1H-events_highpri]
+1 I root         384       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [kworker/3:1H-kblockd]
+1 I root         415       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [nvme-wq]
+1 I root         416       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [nvme-reset-wq]
+1 I root         417       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [nvme-delete-wq]
+1 I root         429       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [amd_iommu_v2]
+1 I root         441       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [amdgpu-reset-de]
+1 I root         442       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [amdgpu_dm_hpd_r]
+1 I root         443       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [amdgpu_dm_hpd_r]
+1 I root         444       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [amdgpu_dm_hpd_r]
+1 I root         445       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [dm_vblank_contr]
+1 S root         446       2  0   9   - -     0 -      02:48 ?        00:00:00 [card0-crtc0]
+1 S root         447       2  0   9   - -     0 -      02:48 ?        00:00:00 [card0-crtc1]
+1 S root         448       2  0   9   - -     0 -      02:48 ?        00:00:00 [card0-crtc2]
+1 S root         449       2  0   9   - -     0 -      02:48 ?        00:00:00 [card0-crtc3]
+1 S root         450       2  0   9   - -     0 -      02:48 ?        00:00:00 [card0-crtc4]
+1 S root         451       2  0  58   - -     0 -      02:48 ?        00:00:14 [gfx_0.0.0]
+1 S root         452       2  0  58   - -     0 -      02:48 ?        00:00:00 [comp_1.0.0]
+1 S root         453       2  0  58   - -     0 -      02:48 ?        00:00:00 [comp_1.1.0]
+1 S root         454       2  0  58   - -     0 -      02:48 ?        00:00:00 [comp_1.2.0]
+1 S root         455       2  0  58   - -     0 -      02:48 ?        00:00:00 [comp_1.3.0]
+1 S root         456       2  0  58   - -     0 -      02:48 ?        00:00:00 [comp_1.0.1]
+1 S root         457       2  0  58   - -     0 -      02:48 ?        00:00:00 [comp_1.1.1]
+1 S root         458       2  0  58   - -     0 -      02:48 ?        00:00:00 [comp_1.2.1]
+1 S root         459       2  0  58   - -     0 -      02:48 ?        00:00:00 [comp_1.3.1]
+1 S root         460       2  0  58   - -     0 -      02:48 ?        00:00:00 [sdma0]
+1 S root         461       2  0  58   - -     0 -      02:48 ?        00:00:00 [sdma1]
+1 S root         462       2  0  58   - -     0 -      02:48 ?        00:00:00 [vcn_dec]
+1 S root         463       2  0  58   - -     0 -      02:48 ?        00:00:00 [vcn_enc0]
+1 S root         464       2  0  58   - -     0 -      02:48 ?        00:00:00 [vcn_enc1]
+1 S root         465       2  0  58   - -     0 -      02:48 ?        00:00:00 [jpeg_dec]
+1 I root         472       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [btrfs-worker]
+1 I root         473       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [btrfs-worker-hi]
+1 I root         474       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [btrfs-delalloc]
+1 I root         475       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [btrfs-flush_del]
+1 I root         476       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [btrfs-cache]
+1 I root         477       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [btrfs-fixup]
+1 I root         478       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [btrfs-endio]
+1 I root         479       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [btrfs-endio-met]
+1 I root         480       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [btrfs-endio-met]
+1 I root         481       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [btrfs-endio-rai]
+1 I root         482       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [btrfs-rmw]
+1 I root         483       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [btrfs-endio-wri]
+1 I root         484       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [btrfs-freespace]
+1 I root         485       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [btrfs-delayed-m]
+1 I root         486       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [btrfs-qgroup-re]
+1 S root         487       2  0  80   0 -     0 -      02:48 ?        00:00:00 [btrfs-cleaner]
+1 S root         488       2  0  80   0 -     0 -      02:48 ?        00:00:10 [btrfs-transaction]
+4 S root         600       1  0  80   0 - 20681 -      02:48 ?        00:00:00 /usr/lib/systemd/systemd-journald
+4 S root         614       1  0  80   0 -  8791 -      02:48 ?        00:00:00 /usr/lib/systemd/systemd-udevd
+1 I root         684       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [led_workqueue]
+1 S root         727       2  0  80   0 -     0 -      02:48 ?        00:00:00 [jbd2/nvme0n1p5-8]
+1 I root         728       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [ext4-rsv-conver]
+4 S systemd+     758       1  0  80   0 -  4416 -      02:48 ?        00:00:22 /usr/lib/systemd/systemd-oomd
+4 S systemd+     759       1  0  80   0 -  6666 -      02:48 ?        00:00:02 /usr/lib/systemd/systemd-resolved
+4 S root         762       1  0  80   0 -  4341 -      02:48 ?        00:00:00 /usr/lib/systemd/systemd-userdbd
+5 S root         763       1  0  76  -4 -  4510 -      02:48 ?        00:00:00 /sbin/auditd
+1 I root         785       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [rpciod]
+1 I root         786       2  0  60 -20 -     0 -      02:48 ?        00:00:00 [xprtiod]
+4 S avahi        788       1  0  80   0 -  2167 -      02:48 ?        00:00:00 avahi-daemon: running [fedora.local]
+4 S root         790       1  0  58   - - 57411 -      02:48 ?        00:00:00 /usr/libexec/low-memory-monitor
+4 S polkitd      791       1  0  80   0 - 715214 -     02:48 ?        00:00:00 /usr/lib/polkit-1/polkitd --no-debug
+4 S root         794       1  0  80   0 - 113107 -     02:48 ?        00:00:00 /usr/libexec/power-profiles-daemon
+4 S rtkit        795       1  0  81   1 - 38495 -      02:48 ?        00:00:00 /usr/libexec/rtkit-daemon
+4 S root         796       1  0  80   0 - 131514 -     02:48 ?        00:00:00 /usr/libexec/accounts-daemon
+4 S root         798       1  0  80   0 - 112187 -     02:48 ?        00:00:00 /usr/libexec/switcheroo-control
+4 S root         800       1  0  80   0 - 13361 -      02:48 ?        00:00:00 /usr/lib/systemd/systemd-logind
+4 S root         801       1  0  80   0 -  4421 -      02:48 ?        00:00:00 /usr/lib/systemd/systemd-machined
+4 S root         803       1  0  80   0 - 98821 -      02:48 ?        00:00:00 /usr/libexec/udisks2/udisksd
+4 S root         807       1  0  80   0 - 112373 -     02:48 ?        00:00:00 /usr/libexec/upowerd
+1 S avahi        811     788  0  80   0 -  2100 -      02:48 ?        00:00:00 avahi-daemon: chroot helper
+4 S dbus         818       1  0  80   0 -  2744 -      02:48 ?        00:00:00 /usr/bin/dbus-broker-launch --scope system --audit
+4 S root         828       1  0  80   0 - 116778 -     02:48 ?        00:00:00 /usr/sbin/abrtd -d -s
+4 S dbus         833     818  0  80   0 -  2724 -      02:48 ?        00:00:00 dbus-broker --log 4 --controller 9 --machine-id ddd768ae5a06441896a6fa01673113aa --max-bytes 536870912 --max-fds 4096 --max-matches 131072 --audit
+5 S chrony       847       1  0  80   0 - 21288 -      02:48 ?        00:00:00 /usr/sbin/chronyd -F 2
+1 S root         856       2  0  58   - -     0 -      02:48 ?        00:00:00 [psimon]
+4 S root         870       1  0  80   0 - 87105 -      02:48 ?        00:00:00 /usr/bin/abrt-dump-journal-core -D -T -f -e
+4 S root         871       1  0  80   0 - 93647 -      02:48 ?        00:00:00 /usr/bin/abrt-dump-journal-oops -fxtD
+4 S root         872       1  0  80   0 - 100173 -     02:48 ?        00:00:00 /usr/bin/abrt-dump-journal-xorg -fxtD
+4 S root         873       1  0  99   - -  1206 -      02:48 ?        00:00:00 /usr/sbin/alsactl -s -n 19 -c -E ALSA_CONFIG_PATH=/etc/alsa/alsactl.conf --initfile=/lib/alsa/init/00main rdaemon
+4 S root         876       1  0  80   0 - 97587 -      02:48 ?        00:00:00 /usr/sbin/ModemManager
+4 S root         877       1  0  80   0 - 88018 -      02:48 ?        00:00:00 /usr/bin/python3 -s /usr/sbin/firewalld --nofork --nopid
+4 S root         892       1  0  80   0 - 118786 -     02:48 ?        00:00:00 /usr/sbin/NetworkManager --no-daemon
+4 S root         899       1  0  80   0 - 60437 -      02:48 ?        00:00:00 /usr/sbin/cupsd -l
+1 S root         905       1  0  80   0 - 67717 -      02:48 ?        00:00:00 /usr/sbin/gssproxy -D
+4 S root        1040       1  0  80   0 - 116919 -     02:48 ?        00:00:00 /usr/sbin/abrt-dbus -t133
+4 S root        1052       1  0  80   0 - 113412 -     02:48 ?        00:00:00 /usr/sbin/gdm
+4 S root        1082       1  0  80   0 - 58485 -      02:48 ?        00:00:00 /usr/libexec/uresourced
+4 S root        1182       1  0  80   0 -  3786 -      02:48 ?        00:00:00 /usr/sbin/wpa_supplicant -c /etc/wpa_supplicant/wpa_supplicant.conf -u -s
+4 S root        1186       1  0  80   0 - 195067 -     02:48 ?        00:00:03 /usr/libexec/packagekitd
+4 S root        1330       1  0  80   0 - 117792 -     02:48 ?        00:00:00 /usr/sbin/pcscd --foreground --auto-exit
+4 S colord      1433       1  0  80   0 - 132749 -     02:48 ?        00:00:00 /usr/libexec/colord
+4 S root        1543    1052  0  80   0 - 133985 -     02:48 ?        00:00:00 gdm-session-worker [pam/gdm-password]
+4 S joaocout    1557       1  0  80   0 -  5770 do_epo 02:48 ?        00:00:02 /usr/lib/systemd/systemd --user
+5 S joaocout    1562    1557  0  80   0 -  7302 -      02:48 ?        00:00:00 (sd-pam)
+1 S joaocout    1580       1  0  80   0 - 150686 do_sys 02:48 ?       00:00:00 /usr/bin/gnome-keyring-daemon --daemonize --login
+4 S joaocout    1594    1543  0  80   0 - 93687 do_sys 02:48 tty2     00:00:00 /usr/libexec/gdm-wayland-session /usr/bin/gnome-session
+0 S joaocout    1597    1557  0  80   0 -  2629 do_epo 02:48 ?        00:00:00 /usr/bin/dbus-broker-launch --scope user
+0 S joaocout    1599    1597  0  80   0 -  1741 do_epo 02:48 ?        00:00:01 dbus-broker --log 4 --controller 9 --machine-id ddd768ae5a06441896a6fa01673113aa --max-bytes 100000000000000 --max-fds 25000000000000 --max-matches 5000000000
+0 S joaocout    1601    1594  0  80   0 - 128693 do_sys 02:48 tty2    00:00:00 /usr/libexec/gnome-session-binary
+0 S joaocout    1660    1557  0  80   0 - 76064 do_sys 02:48 ?        00:00:00 /usr/libexec/gnome-session-ctl --monitor
+0 S joaocout    1661    1557  0  80   0 - 61171 do_sys 02:48 ?        00:00:00 /usr/libexec/uresourced --user
+0 S joaocout    1664    1557  0  80   0 - 268192 do_sys 02:48 ?       00:00:00 /usr/libexec/gnome-session-binary --systemd-service --session=gnome
+0 S joaocout    1668    1557  0  80   0 - 113214 do_sys 02:48 ?       00:00:00 /usr/libexec/gvfsd
+0 S joaocout    1674    1557  0  80   0 - 94996 futex_ 02:48 ?        00:00:00 /usr/libexec/gvfsd-fuse /run/user/1000/gvfs -f
+0 S joaocout    1679    1557  0  69 -11 - 86783 do_epo 02:48 ?        00:00:48 /usr/bin/pipewire
+0 S joaocout    1684    1557  0  69 -11 - 118251 do_sys 02:48 ?       00:00:00 /usr/bin/wireplumber
+0 S joaocout    1715    1557  1  80   0 - 1224937 do_sys 02:48 ?      00:06:14 /usr/bin/gnome-shell
+0 S joaocout    1840    1557  0  80   0 - 77142 do_sys 02:48 ?        00:00:00 /usr/libexec/at-spi-bus-launcher
+0 S joaocout    1846    1840  0  80   0 -  2597 do_epo 02:48 ?        00:00:00 /usr/bin/dbus-broker-launch --config-file=/usr/share/defaults/at-spi2/accessibility.conf --scope user
+0 S joaocout    1848    1846  0  80   0 -  1251 do_epo 02:48 ?        00:00:00 dbus-broker --log 4 --controller 9 --machine-id ddd768ae5a06441896a6fa01673113aa --max-bytes 100000000000000 --max-fds 6400000 --max-matches 5000000000
+0 S joaocout    1860    1557  0  80   0 - 112128 do_sys 02:48 ?       00:00:00 /usr/libexec/xdg-permission-store
+0 S joaocout    1864    1557  0  80   0 - 146556 do_sys 02:48 ?       00:00:00 /usr/libexec/gnome-shell-calendar-server
+0 S joaocout    1873    1557  0  80   0 - 305625 do_sys 02:48 ?       00:00:00 /usr/libexec/evolution-source-registry
+0 S joaocout    1877    1557  0  69 -11 - 64812 do_epo 02:48 ?        00:02:07 /usr/bin/pipewire-pulse
+0 S joaocout    1885    1557  0  80   0 - 224460 do_sys 02:48 ?       00:00:00 /usr/libexec/goa-daemon
+0 S joaocout    1888    1557  0  80   0 - 38982 do_sys 02:48 ?        00:00:00 /usr/libexec/dconf-service
+0 S joaocout    1896    1557  0  80   0 - 263984 do_sys 02:48 ?       00:00:00 /usr/libexec/evolution-calendar-factory
+0 S joaocout    1903    1557  0  80   0 - 133469 do_sys 02:48 ?       00:00:00 /usr/libexec/gvfs-udisks2-volume-monitor
+0 S joaocout    1914    1557  0  80   0 - 112207 do_sys 02:48 ?       00:00:00 /usr/libexec/gvfs-mtp-volume-monitor
+0 S joaocout    1928    1557  0  80   0 - 132893 do_sys 02:48 ?       00:00:01 /usr/libexec/goa-identity-service
+0 S joaocout    1929    1557  0  80   0 - 112218 do_sys 02:48 ?       00:00:00 /usr/libexec/gvfs-goa-volume-monitor
+0 S joaocout    1938    1557  0  80   0 - 239700 do_sys 02:48 ?       00:00:00 /usr/libexec/evolution-addressbook-factory
+0 S joaocout    1941    1557  0  80   0 - 112706 do_sys 02:48 ?       00:00:00 /usr/libexec/gvfs-gphoto2-volume-monitor
+0 S joaocout    1949    1557  0  80   0 - 132087 do_sys 02:48 ?       00:00:00 /usr/libexec/gvfs-afc-volume-monitor
+4 S root        1955       1  0  80   0 - 65392 -      02:48 ?        00:00:09 /usr/libexec/sssd/sssd_kcm --uid 0 --gid 0 --logger=files
+0 S joaocout    1965    1557  0  80   0 - 754973 do_sys 02:48 ?       00:00:00 /usr/bin/gjs /usr/share/gnome-shell/org.gnome.Shell.Notifications
+0 S joaocout    1966    1557  0  80   0 - 40415 do_sys 02:48 ?        00:00:00 /usr/libexec/at-spi2-registryd --use-gnome-session
+0 S joaocout    1975    1557  0  80   0 - 132051 do_sys 02:48 ?       00:00:10 /usr/bin/ibus-daemon --panel disable
+0 S joaocout    1982    1557  0  80   0 - 130698 do_sys 02:48 ?       00:00:00 /usr/libexec/gsd-a11y-settings
+0 S joaocout    1985    1557  0  80   0 - 206998 do_sys 02:48 ?       00:00:00 /usr/libexec/gsd-color
+0 S joaocout    1988    1557  0  80   0 - 135093 do_sys 02:48 ?       00:00:00 /usr/libexec/gsd-datetime
+0 S joaocout    1991    1557  0  80   0 - 131298 do_sys 02:48 ?       00:00:00 /usr/libexec/gsd-housekeeping
+0 S joaocout    1992    1557  0  80   0 - 166719 do_sys 02:48 ?       00:00:00 /usr/libexec/gsd-keyboard
+0 S joaocout    1994    1557  0  80   0 - 221265 do_sys 02:48 ?       00:00:00 /usr/libexec/gsd-media-keys
+0 S joaocout    1996    1557  0  80   0 - 202538 do_sys 02:48 ?       00:00:00 /usr/libexec/gsd-power
+0 S joaocout    1998    1557  0  80   0 - 115507 do_sys 02:48 ?       00:00:00 /usr/libexec/gsd-print-notifications
+0 S joaocout    2000    1557  0  80   0 - 167559 do_sys 02:48 ?       00:00:00 /usr/libexec/gsd-rfkill
+0 S joaocout    2001    1557  0  80   0 - 112164 do_sys 02:48 ?       00:00:00 /usr/libexec/gsd-screensaver-proxy
+0 S joaocout    2002    1557  0  80   0 - 169711 do_sys 02:48 ?       00:00:00 /usr/libexec/gsd-sharing
+0 S joaocout    2003    1557  0  80   0 - 152645 do_sys 02:48 ?       00:00:01 /usr/libexec/gsd-smartcard
+0 S joaocout    2009    1557  0  80   0 - 132812 do_sys 02:48 ?       00:00:00 /usr/libexec/gsd-sound
+0 S joaocout    2012    1557  0  80   0 - 168042 do_sys 02:48 ?       00:00:00 /usr/libexec/gsd-usb-protection
+0 S joaocout    2013    1557  0  80   0 - 166864 do_sys 02:48 ?       00:00:00 /usr/libexec/gsd-wacom
+0 S joaocout    2065    1664  0  80   0 - 247070 do_sys 02:48 ?       00:00:00 /usr/libexec/evolution-data-server/evolution-alarm-notify
+0 S joaocout    2066    1557  0  80   0 - 754939 do_sys 02:48 ?       00:00:00 /usr/bin/gjs /usr/share/gnome-shell/org.gnome.ScreenSaver
+0 S joaocout    2071    1664  0  80   0 - 58060 do_sys 02:48 ?        00:00:00 /usr/libexec/gsd-disk-utility-notify
+0 S joaocout    2088    1664  0  80   0 - 314418 do_sys 02:48 ?       00:00:02 /usr/bin/gnome-software --gapplication-service
+0 S joaocout    2106    1975  0  80   0 - 112422 do_sys 02:48 ?       00:00:00 /usr/libexec/ibus-dconf
+0 S joaocout    2110    1975  0  80   0 - 168178 do_sys 02:48 ?       00:00:02 /usr/libexec/ibus-extension-gtk3
+0 S joaocout    2119    1557  0  80   0 - 112507 do_sys 02:48 ?       00:00:00 /usr/libexec/ibus-portal
+0 S joaocout    2120    1557  0  80   0 - 130875 do_sys 02:48 ?       00:00:00 /usr/bin/abrt-applet --gapplication-service
+0 S joaocout    2199    1975  0  80   0 - 93961 do_sys 02:48 ?        00:00:03 /usr/libexec/ibus-engine-simple
+0 S joaocout    2241    1557  0  80   0 - 148549 do_sys 02:48 ?       00:00:00 /usr/libexec/gsd-printer
+0 S joaocout    2243    1557  0  80   0 - 209393 do_sys 02:48 ?       00:00:01 /usr/libexec/xdg-desktop-portal
+0 S joaocout    2256    1557  0  80   0 - 241364 do_sys 02:48 ?       00:00:00 /usr/libexec/xdg-document-portal
+4 S root        2272    2256  0  80   0 -   657 -      02:48 ?        00:00:00 fusermount -o rw,nosuid,nodev,fsname=portal,auto_unmount,subtype=portal -- /run/user/1000/doc
+0 S joaocout    2282    1557  0  80   0 - 189423 do_sys 02:48 ?       00:00:01 /usr/libexec/xdg-desktop-portal-gnome
+0 S joaocout    2313    1557  0  80   0 - 166912 do_sys 02:48 ?       00:00:00 /usr/libexec/xdg-desktop-portal-gtk
+0 S joaocout    2345    1557  0  80   0 - 93856 do_sys 02:48 ?        00:00:00 /usr/libexec/gvfsd-metadata
+0 S joaocout    2583    1715  0  80   0 - 235649 do_epo 02:48 ?       00:01:31 /usr/bin/Xwayland :0 -rootless -noreset -accessx -core -auth /run/user/1000/.mutter-Xwaylandauth.BLWKQ1 -listenfd 4 -listenfd 5 -displayfd 6 -initfd 7
+0 S joaocout    2605    1557  0  80   0 - 367941 do_sys 02:48 ?       00:00:00 /usr/libexec/gsd-xsettings
+0 S joaocout    2627    1557  0  80   0 - 129561 do_sys 02:48 ?       00:00:00 /usr/libexec/ibus-x11
+0 S joaocout    3378    1557  0  80   0 -  1531 do_epo 02:53 ?        00:00:03 /usr/libexec/cgroupify app-glib-google\x2dchrome-3372.scope
+0 S joaocout    3379    1557  0  80   0 - 55402 pipe_r 02:53 ?        00:00:00 cat
+0 S joaocout    3380    1557  0  80   0 - 55402 pipe_r 02:53 ?        00:00:00 cat
+0 S joaocout    3381    1557  0  80   0 -  1531 do_epo 02:53 ?        00:00:13 /usr/libexec/cgroupify app-gnome-google\x2dchrome-3372.scope
+0 R joaocout    7915    1557  0  80   0 - 192272 -     03:52 ?        00:00:16 /usr/libexec/gnome-terminal-server
+0 S joaocout    7933    7915  0  80   0 - 56372 do_wai 03:52 pts/0    00:00:00 bash
+4 S joaocout    8008    1557  0  80   0 - 5458026 do_sys 03:52 ?      00:02:01 /usr/share/code/code --enable-crashpad .
+0 S joaocout    8015    8008  0  80   0 - 4307607 do_sys 03:52 ?      00:00:00 /usr/share/code/code --type=zygote --no-zygote-sandbox --enable-crashpad --enable-crashpad
+4 S joaocout    8016    8008  0  80   0 - 4307604 do_wai 03:52 ?      00:00:00 /usr/share/code/code --type=zygote --enable-crashpad --enable-crashpad
+1 S joaocout    8018    8016  0  80   0 - 4307604 do_sys 03:52 ?      00:00:00 /usr/share/code/code --type=zygote --enable-crashpad --enable-crashpad
+0 S joaocout    8031    1557  0  80   0 - 4199571 do_epo 03:52 ?      00:00:00 /usr/share/code/chrome_crashpad_handler --monitor-self-annotation=ptype=crashpad-handler --no-rate-limit --database=/home/joaocout/.config/Code/Crashpad --url=appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=85ba90c4-3b1a-4feb-bba6-9d93c2852ea2&iid=85ba90c4-3b1a-4feb-bba6-9d93c2852ea2&sid=85ba90c4-3b1a-4feb-bba6-9d93c2852ea2 --annotation=_companyName=Microsoft --annotation=_productName=VSCode --annotation=_version=1.70.0 --annotation=prod=Electron --annotation=ver=18.3.5 --initial-client-fd=43 --shared-client-connection
+1 S joaocout    8049    8015  0  80   0 - 4398326 do_sys 03:52 ?      00:02:49 /usr/share/code/code --type=gpu-process --enable-crashpad --crashpad-handler-pid=8031 --enable-crash-reporter=5592569e-0024-4e38-a6a1-7846d1ddb12b,no_channel --user-data-dir=/home/joaocout/.config/Code --gpu-preferences=WAAAAAAAAAAgAAAIAAAAAAAAAAAAAAAAAABgAAAAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAIAAAAAAAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAA== --shared-files --field-trial-handle=0,i,17886244156285360112,7612847680893745304,131072 --disable-features=SpareRendererForSitePerProcess
+0 S joaocout    8072    8008  0  80   0 - 4324118 futex_ 03:52 ?      00:00:06 /usr/share/code/code --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --enable-crashpad --crashpad-handler-pid=8031 --enable-crash-reporter=5592569e-0024-4e38-a6a1-7846d1ddb12b,no_channel --user-data-dir=/home/joaocout/.config/Code --standard-schemes=vscode-webview,vscode-file --secure-schemes=vscode-webview,vscode-file --bypasscsp-schemes --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --streaming-schemes --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17886244156285360112,7612847680893745304,131072 --disable-features=SpareRendererForSitePerProcess --enable-crashpad
+0 S joaocout    8093    8008  3  80   0 - 11198898 futex_ 03:52 ?     00:13:52 /usr/share/code/code --type=renderer --enable-crashpad --crashpad-handler-pid=8031 --enable-crash-reporter=5592569e-0024-4e38-a6a1-7846d1ddb12b,no_channel --user-data-dir=/home/joaocout/.config/Code --standard-schemes=vscode-webview,vscode-file --secure-schemes=vscode-webview,vscode-file --bypasscsp-schemes --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --streaming-schemes --app-path=/usr/share/code/resources/app --no-sandbox --no-zygote --enable-blink-features=HighlightAPI --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=4 --launch-time-ticks=3868172028 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17886244156285360112,7612847680893745304,131072 --disable-features=SpareRendererForSitePerProcess --vscode-window-config=vscode:0cbfd559-ecc6-446b-b524-33c8b32aec07 --enable-crashpad
+0 S joaocout    8114    8008  0  80   0 - 7529433 futex_ 03:52 ?      00:01:10 /usr/share/code/code --type=renderer --enable-crashpad --crashpad-handler-pid=8031 --enable-crash-reporter=5592569e-0024-4e38-a6a1-7846d1ddb12b,no_channel --user-data-dir=/home/joaocout/.config/Code --standard-schemes=vscode-webview,vscode-file --secure-schemes=vscode-webview,vscode-file --bypasscsp-schemes --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --streaming-schemes --app-path=/usr/share/code/resources/app --no-sandbox --no-zygote --node-integration-in-worker --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=3868943702 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17886244156285360112,7612847680893745304,131072 --disable-features=SpareRendererForSitePerProcess --vscode-window-config=vscode:f0070a51-7fd6-4eab-a229-3d9785a15196 --vscode-window-kind=shared-process --enable-crashpad
+0 S joaocout    8115    8008  0  80   0 - 5355693 do_epo 03:52 ?      00:02:11 /usr/share/code/code --ms-enable-electron-run-as-node --inspect-port=0 /usr/share/code/resources/app/out/bootstrap-fork --type=extensionHost --skipWorkspaceStorageLock
+0 S joaocout    8145    8114  0  80   0 - 5353558 do_epo 03:52 ?      00:00:00 /usr/share/code/code --ms-enable-electron-run-as-node /usr/share/code/resources/app/out/bootstrap-fork --type=ptyHost --logsPath /home/joaocout/.config/Code/logs/20220808T035237
+0 S joaocout    8166    8114  0  80   0 - 5357638 do_epo 03:52 ?      00:00:01 /usr/share/code/code --ms-enable-electron-run-as-node /usr/share/code/resources/app/out/bootstrap-fork --type=fileWatcher
+0 S joaocout    8193    8115  0  80   0 - 417479 unix_s 03:52 ?       00:00:52 /home/joaocout/.vscode/extensions/ms-vscode.cpptools-1.11.4-linux-x64/bin/cpptools
+0 S joaocout    8258    8115  0  80   0 - 5345226 do_epo 03:52 ?      00:00:00 /usr/share/code/code --ms-enable-electron-run-as-node /usr/share/code/resources/app/extensions/json-language-features/server/dist/node/jsonServerMain --node-ipc --clientProcessId=8115
+0 S joaocout   11241    1580  0  80   0 -  1874 -      04:31 ?        00:00:00 /usr/bin/ssh-agent -D -a /run/user/1000/keyring/.ssh
+1 I root       13476       2  0  80   0 -     0 -      05:33 ?        00:00:02 [kworker/u64:2-btrfs-endio-write]
+1 I root       14139       2  0  80   0 -     0 -      06:08 ?        00:00:02 [kworker/u64:1-btrfs-endio-write]
+4 S joaocout   17724    1557  0  80   0 - 8665096 do_sys 08:12 ?      00:01:09 /opt/google/chrome/chrome --desktop-startup-id=gnome-shell/Google Chrome/1715-0-fedora_TIME297809 --disable-features --enable-crashpad --enable-features --enable-crashpad
+0 S joaocout   17728   17724  0  80   0 - 55402 pipe_r 08:12 ?        00:00:00 cat
+0 S joaocout   17729   17724  0  80   0 - 55402 pipe_r 08:12 ?        00:00:00 cat
+0 S joaocout   17731    1557  0  80   0 - 8393904 do_epo 08:12 ?      00:00:00 /opt/google/chrome/chrome_crashpad_handler --monitor-self --monitor-self-annotation=ptype=crashpad-handler --database=/home/joaocout/.config/google-chrome/Crash Reports --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=lsb-release=Fedora Linux 36 (Workstation Edition) --annotation=plat=Linux --annotation=prod=Chrome_Linux --annotation=ver=104.0.5112.79 --initial-client-fd=5 --shared-client-connection
+0 S joaocout   17733    1557  0  80   0 - 8391851 do_epo 08:12 ?      00:00:00 /opt/google/chrome/chrome_crashpad_handler --no-periodic-tasks --monitor-self-annotation=ptype=crashpad-handler --database=/home/joaocout/.config/google-chrome/Crash Reports --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=lsb-release=Fedora Linux 36 (Workstation Edition) --annotation=plat=Linux --annotation=prod=Chrome_Linux --annotation=ver=104.0.5112.79 --initial-client-fd=4 --shared-client-connection
+0 S joaocout   17742   17724  0  80   0 - 8513026 do_sys 08:12 ?      00:00:00 /opt/google/chrome/chrome --type=zygote --no-zygote-sandbox --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --change-stack-guard-on-fork=enable --enable-crashpad
+4 S joaocout   17743   17724  0  80   0 - 8513024 do_wai 08:12 ?      00:00:00 /opt/google/chrome/chrome --type=zygote --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --change-stack-guard-on-fork=enable --enable-crashpad
+4 S joaocout   17745   17743  0  80   0 - 8390778 skb_wa 08:12 ?      00:00:00 /opt/google/chrome/nacl_helper
+5 S joaocout   17748   17743  0  80   0 - 8513030 do_sys 08:12 ?      00:00:00 /opt/google/chrome/chrome --type=zygote --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --change-stack-guard-on-fork=enable --enable-crashpad
+1 S joaocout   17780   17742  1  80   0 - 8675103 futex_ 08:12 ?      00:01:55 /opt/google/chrome/chrome --type=gpu-process --ozone-platform=wayland --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --change-stack-guard-on-fork=enable --gpu-preferences=WAAAAAAAAAAgAAAYAAAAAAAAAAAAAAAAAABgAAAAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAAAAAAAAOAAAAAAAAAAAAAAAAAAAABAAAAABAAAACAAAAAAAAAAQAAAAAAAAAAAAAAAEAAAACAAAAAAAAAAIAAAAAAAAAA== --shared-files --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+0 S joaocout   17781   17724  0  80   0 - 8531231 futex_ 08:12 ?      00:00:38 /opt/google/chrome/chrome --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --change-stack-guard-on-fork=enable --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer --enable-crashpad
+1 S joaocout   17792   17748  0  80   0 - 8525424 futex_ 08:12 ?      00:00:00 /opt/google/chrome/chrome --type=utility --utility-sub-type=storage.mojom.StorageService --lang=en-US --service-sandbox-type=utility --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --change-stack-guard-on-fork=enable --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 S joaocout   17824   17748  0  80   0 - 294935529 futex_ 08:12 ?    00:00:00 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --extension-process --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=19446377089 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 S joaocout   17858   17748  0  80   0 - 294935529 futex_ 08:12 ?    00:00:00 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --extension-process --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=19446392197 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 S joaocout   17963   17748 11  80   0 - 298100708 futex_ 08:12 ?    00:17:17 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=20 --launch-time-ticks=19448444067 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 S joaocout   17964   17748  0  80   0 - 294938315 futex_ 08:12 ?    00:00:02 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=13 --launch-time-ticks=19448445311 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+0 S joaocout   18071   17724  2  80   0 - 8545798 futex_ 08:12 ?      00:03:30 /opt/google/chrome/chrome --type=utility --utility-sub-type=audio.mojom.AudioService --lang=en-US --service-sandbox-type=none --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --change-stack-guard-on-fork=enable --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer --enable-crashpad
+1 I root       18395       2  0  80   0 -     0 -      08:12 ?        00:00:02 [kworker/u64:9-btrfs-endio-write]
+1 I root       21469       2  0  80   0 -     0 -      09:06 ?        00:00:01 [kworker/u64:3-blkcg_punt_bio]
+1 S joaocout   22064   17748  0  80   0 - 295991109 futex_ 09:20 ?    00:00:02 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=77 --launch-time-ticks=23538541164 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 S joaocout   22442   17748  0  80   0 - 294938406 futex_ 09:26 ?    00:00:04 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=85 --launch-time-ticks=23930362044 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 S joaocout   22630   17748  0  80   0 - 294940736 futex_ 09:28 ?    00:00:05 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=93 --launch-time-ticks=24044778633 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 S joaocout   22648   17748  0  80   0 - 294935567 futex_ 09:28 ?    00:00:00 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=94 --launch-time-ticks=24048350037 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 S joaocout   22679   17748  0  80   0 - 294940411 futex_ 09:29 ?    00:00:04 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=95 --launch-time-ticks=24051226162 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 S joaocout   22716   17748  0  80   0 - 294937617 futex_ 09:29 ?    00:00:00 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=97 --launch-time-ticks=24054188712 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 S joaocout   22724   17748  0  80   0 - 294940578 futex_ 09:29 ?    00:00:00 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=98 --launch-time-ticks=24054194316 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 S joaocout   22760   17748  0  80   0 - 294935566 futex_ 09:29 ?    00:00:00 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=100 --launch-time-ticks=24054628460 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 S joaocout   22775   17748  0  80   0 - 294938736 futex_ 09:29 ?    00:00:01 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=101 --launch-time-ticks=24054655262 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 S joaocout   22810   17748  0  80   0 - 294939148 futex_ 09:29 ?    00:00:00 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=104 --launch-time-ticks=24054834530 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 S joaocout   22855   17748  0  80   0 - 294935567 futex_ 09:29 ?    00:00:00 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=106 --launch-time-ticks=24055425576 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 S joaocout   22871   17748  0  80   0 - 294935566 futex_ 09:29 ?    00:00:00 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=107 --launch-time-ticks=24056197561 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 S joaocout   22878   17748  0  80   0 - 294935567 futex_ 09:29 ?    00:00:00 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=108 --launch-time-ticks=24056202382 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 S joaocout   22880   17748  0  80   0 - 294935528 futex_ 09:29 ?    00:00:00 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=109 --launch-time-ticks=24056204279 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 S joaocout   22913   17748  0  80   0 - 294935567 futex_ 09:29 ?    00:00:00 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=110 --launch-time-ticks=24056223052 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 S joaocout   22917   17748  0  80   0 - 294935567 futex_ 09:29 ?    00:00:00 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=111 --launch-time-ticks=24056225502 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 S joaocout   22921   17748  0  80   0 - 294935567 futex_ 09:29 ?    00:00:00 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=112 --launch-time-ticks=24056227827 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 S joaocout   22928   17748  0  80   0 - 294935566 futex_ 09:29 ?    00:00:00 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=113 --launch-time-ticks=24056230634 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 S joaocout   23174   17748  0  80   0 - 294938468 futex_ 09:30 ?    00:00:03 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=123 --launch-time-ticks=24134768034 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 S joaocout   23371   17748  0  80   0 - 294943222 futex_ 09:32 ?    00:00:10 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=129 --launch-time-ticks=24273715033 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 I root       23585       2  0  80   0 -     0 -      09:36 ?        00:00:00 [kworker/5:0-rcu_par_gp]
+1 I root       23586       2  0  80   0 -     0 -      09:36 ?        00:00:00 [kworker/3:1-rcu_gp]
+1 I root       23599       2  0  80   0 -     0 -      09:36 ?        00:00:00 [kworker/0:2-events]
+1 I root       23600       2  0  80   0 -     0 -      09:36 ?        00:00:00 [kworker/2:1-events]
+1 I root       23678       2  0  80   0 -     0 -      09:37 ?        00:00:00 [kworker/1:3-rcu_gp]
+1 I root       24814       2  0  80   0 -     0 -      09:55 ?        00:00:00 [kworker/4:0-events]
+1 I root       25647       2  0  80   0 -     0 -      10:14 ?        00:00:00 [kworker/5:1-events]
+1 I root       25648       2  0  80   0 -     0 -      10:14 ?        00:00:00 [kworker/3:0-events]
+1 I root       25650       2  0  80   0 -     0 -      10:14 ?        00:00:00 [kworker/4:2-events]
+1 I root       25651       2  0  80   0 -     0 -      10:14 ?        00:00:00 [kworker/1:1-events]
+1 I root       25661       2  0  80   0 -     0 -      10:14 ?        00:00:00 [kworker/2:0-events]
+1 I root       25716       2  0  80   0 -     0 -      10:15 ?        00:00:00 [kworker/u64:12-flush-btrfs-1]
+1 I root       25729       2  0  80   0 -     0 -      10:15 ?        00:00:00 [kworker/u64:13-btrfs-endio-write]
+1 I root       25730       2  0  80   0 -     0 -      10:15 ?        00:00:00 [kworker/u64:14-btrfs-endio-write]
+1 I root       25731       2  0  80   0 -     0 -      10:15 ?        00:00:00 [kworker/u64:15-btrfs-endio-write]
+1 I root       25775       2  0  60 -20 -     0 -      10:15 ?        00:00:00 [kworker/u65:2-btrfs-worker-high]
+1 S joaocout   25942   17748  0  80   0 - 294938540 futex_ 10:17 ?    00:00:02 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=162 --launch-time-ticks=26932268312 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 I root       26208       2  0  80   0 -     0 -      10:21 ?        00:00:00 [kworker/0:0-events]
+1 I root       26772       2  0  80   0 -     0 -      10:28 ?        00:00:00 [kworker/u64:0-btrfs-endio-write]
+1 I root       26889       2  0  60 -20 -     0 -      10:29 ?        00:00:00 [kworker/u65:0-btrfs-worker-high]
+1 I root       27266       2  0  80   0 -     0 -      10:33 ?        00:00:00 [kworker/u64:4-events_unbound]
+0 S root       27976     762  0  80   0 -  4428 -      10:41 ?        00:00:00 systemd-userwork
+0 S joaocout   28082    1557  1  80   0 - 1274249 futex_ 10:43 ?      00:00:01 /home/joaocout/.vscode/extensions/ms-vscode.cpptools-1.11.4-linux-x64/bin/cpptools-srv 8193 {15DF386E-F5FC-40AA-A18D-61E5B7BEEDE0}
+1 S joaocout   28110   17748  0  80   0 - 294935528 futex_ 10:43 ?    00:00:00 /opt/google/chrome/chrome --type=renderer --enable-crashpad --crashpad-handler-pid=17731 --enable-crash-reporter=, --display-capture-permissions-policy-allowed --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=3 --enable-main-frame-before-activation --renderer-client-id=178 --launch-time-ticks=28524091790 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,17112339551729260557,8909073520734087881,131072 --enable-features=WebRTCPipeWireCapturer
+1 I root       28174       2  0  80   0 -     0 -      10:44 ?        00:00:00 [kworker/u64:5-blkcg_punt_bio]
+0 S root       28179     762  0  80   0 -  4428 -      10:44 ?        00:00:00 systemd-userwork
+0 S root       28201     762  0  80   0 -  4428 -      10:44 ?        00:00:00 systemd-userwork
+0 S joaocout   28209    7933  0  80   0 -  1487 do_wai 10:45 pts/0    00:00:00 ./BRsh teste.brsh
+4 R joaocout   28210   28209  0  80   0 - 56470 -      10:45 pts/0    00:00:00 ps -elf
