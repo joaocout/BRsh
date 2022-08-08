@@ -3,30 +3,35 @@
 #include <sstream>
 #include <vector>
 #include <map>
+#include <queue>
 
 #include <unistd.h>
 #include <sys/wait.h>
 #include <string.h>
+#include <fcntl.h>
 
 using namespace std;
 
 map<string, string> ALIASES;
 
 // divide a string str, de acordo com o delimitador d, retorna um vector de strings
-vector<string> split(string str, char d = ' ')
+vector<string> split(string str, string d = "")
 {
     vector<string> result;
-    stringstream ss(str);
-    string token;
 
-    if (d != ' ')
+    if (d != "")
     {
-        while (getline(ss, token, d))
-            if (!token.empty())
-                result.push_back(token);
+        char *token = strtok((char *)str.c_str(), d.c_str());
+        while (token != NULL)
+        {
+            result.push_back(string(token));
+            token = strtok(NULL, d.c_str());
+        }
     }
     else
     {
+        stringstream ss(str);
+        string token;
         while (ss >> token)
             if (!token.empty())
                 result.push_back(token);
@@ -61,10 +66,28 @@ void close_all_pipes(int fd[][2], int size)
     }
 }
 
+// implementa o comando "cd"
+void cd(string path)
+{
+    if (chdir(path.c_str()) == -1)
+        cout << "Erro - Diretório não encontrado" << endl;
+}
+
+// implementa o comando "ver"
+void ver()
+{
+    cout << "BRsh 0.1.0 - Atualizado em: 07/08/2022 - Autor: João Coutinho" << endl;
+}
+
+// implementa o comando "historico"
+void historico(int n)
+{
+}
+
 // executa comandos, com ou sem pipes
 void execute_pipes(string command)
 {
-    vector<string> parts = split(command, '|');
+    vector<string> parts = split(command, "|");
 
     vector<int> pids(parts.size());
 
@@ -82,8 +105,35 @@ void execute_pipes(string command)
 
     for (unsigned int i = 0; i < parts.size(); i++)
     {
+        string command = parts[i]; // comandos divididos por |
+        string in_file = "";
+        string out_file = "";
+        bool should_append = false;
+
+        // processando as strings >> > <
+        vector<string> temp;
+        if (contains(command, ">>"))
+        {
+            vector<string> arr = split(command, ">>");
+            out_file = split(arr[arr.size() - 1])[0];
+            command = arr[0];
+            should_append = true;
+        }
+        else if (contains(command, ">"))
+        {
+            vector<string> arr = split(command, ">");
+            out_file = split(arr[arr.size() - 1])[0];
+            command = arr[0];
+        }
+        else if (contains(command, "<"))
+        {
+            vector<string> arr = split(command, "<");
+            in_file = split(arr[arr.size() - 1])[0];
+            command = arr[0];
+        }
+
         // processando a string do comando atual
-        vector<string> arr = split(parts[i], ' ');
+        vector<string> arr = split(command);
         const char *command_argv[arr.size() + 1];
         for (unsigned int j = 0; j < arr.size(); j++)
             command_argv[j] = arr[j].c_str();
@@ -91,15 +141,55 @@ void execute_pipes(string command)
 
         if (arr[0] == "cd")
         {
-            if (chdir(arr[1].c_str()) == -1)
-                cout << "Erro - Diretório não encontrado" << endl;
-            break;
+            cd(arr[1]);
+            continue;
+        }
+
+        if (arr[0] == "ver")
+        {
+            ver();
+            continue;
+        }
+
+        if (arr[0] == "historico")
+        {
+            historico(0);
+            continue;
         }
 
         int pid = fork();
         pids.push_back(pid);
+
         if (pid == 0)
         {
+            // foi passado um arquivo para output
+            if (out_file.size())
+            {
+                auto mode = should_append ? O_APPEND : O_TRUNC;
+                int fd_out = open(out_file.c_str(), O_WRONLY | mode | O_CREAT, 0777);
+                if (fd_out == -1)
+                    cout << "Erro - Abrindo o arquivo - " << out_file << endl;
+                else
+                {
+                    dup2(fd_out, STDOUT_FILENO);
+                    close(fd_out);
+                }
+            }
+
+            // foi passado um arquivo para input
+            if (in_file.size())
+            {
+                int fd_in = open(in_file.c_str(), O_RDONLY, 0777);
+                if (fd_in == -1)
+                    cout << "Erro - Abrindo o arquivo - " << in_file << endl;
+                else
+                {
+                    dup2(fd_in, STDIN_FILENO);
+                    close(fd_in);
+                }
+            }
+
+            // foram encontrados caracteres de pipe
             if (should_pipe)
             {
                 // primeiro processo
@@ -139,7 +229,7 @@ int main()
     print_prompt();
     getline(cin, command);
 
-    while (!(command == "sair" || command == "exit"))
+    while (!(command == "sair"))
     {
         execute_pipes(command);
         print_prompt();
