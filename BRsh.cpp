@@ -5,6 +5,7 @@
 #include <map>
 #include <queue>
 #include <stack>
+#include <fstream>
 
 #include <unistd.h>
 #include <sys/wait.h>
@@ -52,16 +53,6 @@ vector<string> split(string str, string d = "")
 bool contains(string str, string x)
 {
     return str.find(x) != string::npos;
-}
-
-// imprime o prompt no terminal
-void print_prompt()
-{
-    char username[100];
-    char curr_dir[100];
-    getlogin_r(username, 100);
-    getcwd(curr_dir, 100);
-    cout << "BRsh-" << string(username) << "-" << string(curr_dir) << "->";
 }
 
 // fecha todos os fds da matriz fd
@@ -264,7 +255,13 @@ void execute_pipes(string line)
             // processando vector para poder ser passado ao exec
             const char *command_argv[arr.size() + 1];
             for (unsigned int j = 0; j < arr.size(); j++)
-                command_argv[j] = arr[j].c_str();
+            {
+                // tratando aliases
+                if (ALIASES.count(arr[j]))
+                    command_argv[j] = ALIASES[arr[j]].c_str();
+                else
+                    command_argv[j] = arr[j].c_str();
+            }
             command_argv[arr.size()] = NULL;
 
             if (execvp(command_argv[0], (char *const *)command_argv) == -1)
@@ -296,8 +293,39 @@ void execute_pipes(string line)
     }
 }
 
+void read_aliases()
+{
+    ifstream file(".BRshrc");
+    string line;
+    while (getline(file, line))
+    {
+
+        // dividindo a string
+        vector<string> arr = split(line);
+        if (arr[0] == "alias")
+        {
+            // removendo as ""
+            string command = split(arr[1], "\"")[0];
+            string new_command = split(arr[2], "\"")[0];
+            ALIASES[new_command] = command;
+        }
+    }
+    file.close();
+}
+
+// imprime o prompt no terminal
+void print_prompt()
+{
+    char username[100];
+    char curr_dir[100];
+    getlogin_r(username, 100);
+    getcwd(curr_dir, 100);
+    cout << "BRsh-" << string(username) << "-" << string(curr_dir) << "->";
+}
+
 int main()
 {
+    read_aliases();
     string command = "";
     print_prompt();
     getline(cin, command);
