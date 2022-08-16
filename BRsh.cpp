@@ -1,5 +1,3 @@
-// joao pedro assuncao coutinho - 180019813
-
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -17,15 +15,20 @@
 
 using namespace std;
 
+// used for storing aliases read from the .BRshrc file
 map<string, string> ALIASES;
 
+// used for keeping track of background processes
 map<int, int> JOBS;
 
+// stores the last 7 commands
 queue<string> HISTORY;
 
+// should be incremented when new background processes are created
 int JOBS_COUNT;
 
-// divide a string str, de acordo com o delimitador d, retorna um vector de strings
+// divides the string "str", according to the delimiter "d", returns a vector<string>
+// if no delimiter is provided, the string is divided ignoring whitespaces, "\t", "\n", etc
 vector<string> split(string str, string d = "")
 {
     vector<string> result;
@@ -51,13 +54,13 @@ vector<string> split(string str, string d = "")
     return result;
 }
 
-// retorna TRUE se str contem x, FALSE se não
+// returns true if str contains x, false otherwise
 bool contains(string str, string x)
 {
     return str.find(x) != string::npos;
 }
 
-// fecha todos os fds da matriz fd
+// closes all file descriptors of the matrix fd
 void close_all_pipes(int fd[][2], int size)
 {
     for (int i = 0; i < size; i++)
@@ -67,26 +70,26 @@ void close_all_pipes(int fd[][2], int size)
     }
 }
 
-// implementa o comando "cd"
+// implements the "cd" command
 void cd(string path)
 {
     if (chdir(path.c_str()) == -1)
         cout << "Erro - Diretório não encontrado" << endl;
 }
 
-// implementa o comando "ver"
+// implements the "version" command
 void ver()
 {
     cout << "BRsh 0.1.0 - Atualizado em: 08/08/2022 - Autor: João Coutinho" << endl;
 }
 
-// implementa o comando "historico"
-void historico()
+// implements the "history" command
+void history()
 {
     queue<string> tmp_q = HISTORY;
     stack<string> tmp_s;
 
-    // invertendo a queue usando um stack
+    // inverting the queue by using a stack
     while (!tmp_q.empty())
     {
         tmp_s.push(tmp_q.front());
@@ -100,7 +103,7 @@ void historico()
     }
 }
 
-// verifica se existem processos em background
+// checks for any completed background processes
 void check_bg()
 {
     for (auto it = JOBS.begin(); it != JOBS.end();)
@@ -121,7 +124,7 @@ void check_bg()
     }
 }
 
-// executa comandos, com ou sem pipes
+// executes commands, with or without pipes
 void execute_pipes(string line)
 {
     vector<string> parts = split(line, "|");
@@ -135,7 +138,7 @@ void execute_pipes(string line)
     bool should_pipe = parts.size() > 1;
     bool bg = false;
 
-    // inicializando os pipes
+    // initializing necessary pipes
     for (unsigned int i = 0; i < parts.size() - 1; i++)
         pipe(fd[i]);
 
@@ -143,20 +146,20 @@ void execute_pipes(string line)
 
     for (unsigned int i = 0; i < parts.size(); i++)
     {
-        string command = parts[i]; // comandos divididos por |
+        string command = parts[i]; // parts of the command (pipes)
         string in_file = "";
         string out_file = "";
         bool should_append = false;
 
-        // se o ultimo char for um &
-        // assumimos que não haverao espacos em branco à direita
+        // if the last char is a &, this commands should be ran in bg
+        // we assume there aren't trailing whitespace to the right
         if (command[command.size() - 1] == '&')
         {
             bg = true;
             command.erase(command.end() - 1);
         }
 
-        // processando as strings >> > <
+        // processing the ">>", ">", "<" strings (output and input redirects)
         vector<string> temp;
         if (contains(command, ">>"))
         {
@@ -178,10 +181,10 @@ void execute_pipes(string line)
             command = arr[0];
         }
 
-        // processando a string do comando atual
+        // processing the next command to be executed
         vector<string> arr = split(command);
 
-        if (arr[0] == "cd" || arr[0] == "muda")
+        if (arr[0] == "cd" || ALIASES[arr[0]] == "cd")
         {
             if (arr.size() >= 2)
                 cd(arr[1]);
@@ -196,7 +199,7 @@ void execute_pipes(string line)
 
         if (arr[0] == "historico")
         {
-            historico();
+            history();
             return;
         }
 
@@ -205,7 +208,7 @@ void execute_pipes(string line)
             pids[i] = pid;
         else if (pid == 0)
         {
-            // foi passado um arquivo para output
+            // if an output file was passed, we should redirect the output, closing STDOUT
             if (out_file.size())
             {
                 auto mode = should_append ? O_APPEND : O_TRUNC;
@@ -222,7 +225,7 @@ void execute_pipes(string line)
                 }
             }
 
-            // foi passado um arquivo para input
+            // if an input file was passed, we should redirect the input, closing STDIN
             if (in_file.size())
             {
                 int fd_in = open(in_file.c_str(), O_RDONLY, 0777);
@@ -238,18 +241,19 @@ void execute_pipes(string line)
                 }
             }
 
-            // foram encontrados caracteres de pipe
+            // if we should pipe
             if (should_pipe)
             {
-                // primeiro processo
+                // for the first process, we only need to redirect the output into the pipe
                 if (i == 0)
                     dup2(fd[used_pipe][1], STDOUT_FILENO);
 
-                // ultimo processo
+                // for the last process, we only need to redirect the input, reading from the pipe
                 else if (i == parts.size() - 1)
                     dup2(fd[used_pipe][0], STDIN_FILENO);
 
-                // processos do meio
+                // for the middle processes, if there are any
+                // we should read from the current pipe, and write into the next one
                 else
                 {
                     dup2(fd[used_pipe][0], STDIN_FILENO);
@@ -259,15 +263,13 @@ void execute_pipes(string line)
                 close_all_pipes(fd, parts.size() - 1);
             }
 
-            // processando vector para poder ser passado ao exec
+            // converting the vector<string> to a null terminated char[][]
             const char *command_argv[arr.size() + 1];
             for (unsigned int j = 0; j < arr.size(); j++)
             {
                 // tratando aliases
-                if (ALIASES.count(arr[j]))
-                {
+                if (ALIASES[arr[j]] != "")
                     command_argv[j] = ALIASES[arr[j]].c_str();
-                }
                 else
                     command_argv[j] = arr[j].c_str();
             }
@@ -288,7 +290,7 @@ void execute_pipes(string line)
 
     for (unsigned int i = 0; i < pids.size(); i++)
     {
-        // se nao for necessario background, ou se for, mas nao for a ultima parte do pipe
+        // if this command should be put on background
         if (bg && i == pids.size() - 1)
         {
             JOBS[pids[i]] = JOBS_COUNT;
@@ -297,9 +299,7 @@ void execute_pipes(string line)
             JOBS_COUNT++;
         }
         else
-        {
             waitpid(pids[i], NULL, 0);
-        }
     }
 }
 
@@ -309,12 +309,10 @@ void read_aliases()
     string line;
     while (getline(file, line))
     {
-
-        // dividindo a string
         vector<string> arr = split(line);
         if (arr[0] == "alias")
         {
-            // removendo as ""
+            // removing the quotes
             string command = split(arr[1], "\"")[0];
             string new_command = split(arr[2], "\"")[0];
             ALIASES[new_command] = command;
@@ -323,7 +321,7 @@ void read_aliases()
     file.close();
 }
 
-// imprime o prompt no terminal
+// prints the prompt into the terminal
 void print_prompt()
 {
     char username[100];
@@ -335,10 +333,10 @@ void print_prompt()
 
 int main(int argc, char *argv[])
 {
-    // lemos os aliases antes de tudo
     read_aliases();
 
-    // caso tenhamos que executar um arquivo
+    // if we're getting file from the argv
+    // we should read the commands from a file, and the shell shouldn't be run in interactive mode
     bool should_read_from_file = argc == 2;
     vector<string> file_lines;
 
@@ -350,7 +348,7 @@ int main(int argc, char *argv[])
 
         while (getline(file, line))
         {
-            // se a linha não for um comentário nem for vazia
+            // if the line isn't a command or isn't empty
             if (line[0] != '#' && line.size())
                 file_lines.push_back(line);
         }
@@ -358,16 +356,15 @@ int main(int argc, char *argv[])
         file.close();
     }
 
-    // se um arquivo não foi recebido como argumento
     if (!should_read_from_file)
     {
         string command = "";
         print_prompt();
         getline(cin, command);
 
-        while (!(command == "sair"))
+        while (!(command == "sair" || command == "exit"))
         {
-            // somente precisamos processar comandos que não sejam espaços em branco
+            // we only need to process commands that aren't empty
             if (split(command).size())
             {
                 if (HISTORY.size() == 7)
