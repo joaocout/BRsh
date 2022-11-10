@@ -18,11 +18,11 @@ using namespace std;
 // used for storing aliases read from the .BRshrc file
 map<string, string> ALIASES;
 
-// used for keeping track of background processes
-map<int, int> JOBS;
-
 // stores the last 7 commands
 queue<string> HISTORY;
+
+// used for keeping track of background processes
+map<int, int> JOBS;
 
 // should be incremented when new background processes are created
 int JOBS_COUNT;
@@ -58,6 +58,19 @@ vector<string> split(string str, string d = "")
 bool contains(string str, string x)
 {
     return str.find(x) != string::npos;
+}
+
+// trims whitespaces at the end of str
+string trim_end(string str)
+{
+    int last_valid_char_index = 0;
+    for (unsigned int i = 0; i < str.size(); i++)
+    {
+        if (str[i] != ' ')
+            last_valid_char_index = i;
+    }
+
+    return str.substr(0, last_valid_char_index + 1);
 }
 
 // closes all file descriptors of the matrix fd
@@ -117,9 +130,13 @@ void check_bg()
         }
         else if (WIFEXITED(status))
         {
+            // if a job finished, we should remove it from the jobs list
+            // log a message to the terminal
+            // and decrease the jobs count
             cout << "Processo em background [" << JOBS[ret] << "]"
                  << " [executado]" << endl;
             it = JOBS.erase(it);
+            JOBS_COUNT--;
         }
     }
 }
@@ -136,7 +153,7 @@ void execute_pipes(string line)
     // write = fd[1]
 
     bool should_pipe = parts.size() > 1;
-    bool bg = false;
+    bool should_be_background = false;
 
     // initializing necessary pipes
     for (unsigned int i = 0; i < parts.size() - 1; i++)
@@ -146,17 +163,17 @@ void execute_pipes(string line)
 
     for (unsigned int i = 0; i < parts.size(); i++)
     {
-        string command = parts[i]; // parts of the command (pipes)
+        string command = trim_end(parts[i]); // parts of the command (pipes)
         string in_file = "";
         string out_file = "";
         bool should_append = false;
 
         // if the last char is a &, this commands should be ran in bg
         // we assume there aren't trailing whitespace to the right
-        if (command[command.size() - 1] == '&')
+        if (command.back() == '&')
         {
-            bg = true;
-            command.erase(command.end() - 1);
+            should_be_background = true;
+            command.pop_back();
         }
 
         // processing the ">>", ">", "<" strings (output and input redirects)
@@ -291,12 +308,17 @@ void execute_pipes(string line)
     for (unsigned int i = 0; i < pids.size(); i++)
     {
         // if this command should be put on background
-        if (bg && i == pids.size() - 1)
+        // all parts are put in background
+        if (should_be_background)
         {
-            JOBS[pids[i]] = JOBS_COUNT;
-            cout << "Processo em background [" << JOBS[pids[i]] << "]" << endl;
+            // only the last part gets put in the JOBS map
+            if (i == pids.size() - 1)
+            {
+                cout << "Processo em background [" << JOBS[pids[i]] << "]" << endl;
+                JOBS[pids[i]] = JOBS_COUNT;
+                JOBS_COUNT++;
+            }
             waitpid(-1, NULL, WNOHANG);
-            JOBS_COUNT++;
         }
         else
             waitpid(pids[i], NULL, 0);
